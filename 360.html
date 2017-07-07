@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/jquery.fullpage.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+</head>
+<body>
+<div id="my-360-intro">
+    <div class="section first">
+        <a href="javascript:;" class="logo"></a>
+        <div class="text">
+            <img src="images/text_1.png" alt="">
+            <img src="images/text_2.png" alt="">
+            <img src="images/text_3.png" alt="">
+            <img src="images/text_4.png" alt="">
+            <img src="images/text_5.png" alt="">
+            <img src="images/text_6.png" alt="">
+            <img src="images/text_7.png" alt="">
+            <img src="images/text_8.png" alt="">
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section second">
+        <div class="shield">
+            <img src="images/shield_1.png" alt="">
+            <img src="images/shield_2.png" alt="">
+            <img src="images/shield_3.png" alt="">
+            <img src="images/shield_4.png" alt="">
+            <img src="images/shield_5.png" alt="">
+            <img src="images/shield_6.png" alt="">
+            <img src="images/shield_7.png" alt="">
+            <img src="images/shield_8.png" alt="">
+            <img src="images/shield_9.png" alt="">
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section third">
+        <div class="info"></div>
+        <div class="circle">
+            <div class="rocket"></div>
+        </div>
+    </div>
+    <div class="section fourth">
+        <div class="searchBox">
+            <div class="searchInput"></div>
+            <div class="searchText"></div>
+            <div class="searchResult"></div>
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section fifth">
+        <!-- 其它信息 -->
+        <div class="info"></div>
+        <!-- 浏览器 -->
+        <div class="broswer">
+            <div class="tool"></div>
+            <!-- 边框线 -->
+            <div class="lines lineleft"></div>
+            <div class="lines lineright"></div>
+            <div class="lines linetop"></div>
+            <div class="lines linebottom"></div>
+            <!-- 工具栏 -->
+            <div class="toolbar">
+                <p></p>
+            </div>
+            <!-- 特别line -->
+            <div class="lineextra"></div>
+            <!-- 其它 -->
+            <div class="extra"></div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(function(){
+        $('#my-360-intro').fullpage({
+            sectionsColor:['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+//            滚动到某一屏时调用
+            afterLoad:function(anchorLink,index){
+                /*先清除前一屏的current样式*/
+                $(".section").removeClass("current");
+                setTimeout(function(){
+                    $(".section").eq(index-1).addClass("current");
+                },500)
+            }
+        });
+    });
+
+
+
+
+
+
+//    $(function(){
+//        $('#my-360-intro').fullpage({
+//            /*设置每一屏的背景色*/
+//            sectionsColor:["green"],
+//            /*当滚动到某一屏之后调用
+//             * index:当前屏的索引，索引从1开始*/
+//            afterLoad:function(anchorLink,index){
+//                /*将其它屏的current标记移除*/
+//                $(".section").removeClass("current");
+////                alert(index);
+//                /*添加样式,当滚动到某一屏之后，为元素添加样式--标记*/
+//                $(".section").eq(index-1).addClass("current");
+//            }
+//        });
+//    });
+</script>
+</body>
+</html>

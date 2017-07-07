@@ -1,0 +1,324 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.section{
+    overflow: hidden;
+}
+
+/*第一屏结构*/
+.first{
+    overflow: hidden;
+}
+.first .logo{
+    width: 251px;
+    height: 186px;
+    display: block;
+    background: url("../images/logo.png");
+    margin:100px auto 0;
+}
+.first .text{
+    text-align: center;
+    margin-top:50px;
+}
+.first .text > img{
+    margin-left:80px;
+    opacity:0.2;
+    transition: margin-left 1s,opacity 1s;
+}
+.first .text > img:nth-of-type(1){
+    margin-left:0;
+}
+.first .info{
+    width: 772px;
+    height: 49px;
+    background: url("../images/info_1.png");
+    margin:20px auto;
+}
+/*第一屏过渡*/
+.first.current .text > img{
+    margin-left: 10px;
+    opacity:1;
+}
+/*第二屏结构*/
+/*> div：插件会默认在内容外层包裹一层div*/
+.second > div{
+    /*设置父容器为伸缩盒子，直接子元素会成为伸缩项*/
+    display: flex;
+    /*设置主轴方向的排列方式*/
+    justify-content: space-around;
+    /*设置侧轴方向上的排列方式*/
+    align-items: center;
+}
+.second .shield{
+    width: 440px;
+    font-size: 0;
+}
+.second .shield > img {
+    transition: transform 1s;
+}
+.second .shield > img:nth-of-type(1){
+    transform: translate(100px,100px) rotate(30deg);
+}
+.second .shield > img:nth-of-type(2){
+    transform: translate(-100px,-100px) rotate(-30deg);
+}
+.second .shield > img:nth-of-type(3){
+    transform: translate(200px,200px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(4){
+    transform: translate(-200px,-200px) rotate(-60deg);
+}
+.second .shield > img:nth-of-type(5){
+    transform: translate(150px,150px) rotate(90deg);
+}
+.second .shield > img:nth-of-type(6){
+    transform: translate(50px,150px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(7){
+    transform: translate(-150px,-150px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(8){
+    transform: translate(10px,-250px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(9){
+    transform: translate(-250px,10px) rotate(45deg);
+}
+.second .info{
+    width: 635px;
+    height: 309px;
+    background: url("../images/info_2.png");
+}
+/*第二屏动画*/
+.second.current .shield > img{
+    transform:  none;
+}
+/*第三屏结构*/
+.third {
+    position: relative;
+}
+.third .info {
+    width: 631px;
+    height: 278px;
+    background: url("../images/info_3.png");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%,-50%);
+}
+.third .circle {
+    width: 453px;
+    height: 449px;
+    background: url("../images/circle.png");
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(120%,-50%);
+}
+.third .circle .rocket {
+    width: 203px;
+    height: 204px;
+    background: url("../images/rocket.png");
+    position: absolute;
+    top: 600px;
+    left:-600px;
+    transition:top 1s,left 1s;
+}
+/*第三屏动画*/
+.third.current .circle > .rocket{
+    top: 125px;
+    left: 125px;
+}
+/*第四屏结构*/
+.fourth{
+    position: relative;
+}
+.fourth .searchBox{
+    width: 529px;
+    height: 438px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-120%,-50%);
+    overflow: hidden;
+}
+.fourth .searchBox .searchInput{
+    width: 529px;
+    height: 66px;
+    background: url("../images/search.png");
+    /*添加默认的偏移*/
+    transform: translateX(-100%);
+    transition: transform 1s;
+}
+.fourth .searchBox .searchText{
+    /*一开始的时候，文本不可见，所以设置宽度为0*/
+    width: 0px;
+    height: 22px;
+    background: url("../images/key.png");
+    position: absolute;
+    top: 22px;
+    left: 16px;
+    transition: width 1s 1s steps(5);
+}
+.fourth .searchBox .searchResult{
+    width: 529px;
+    /*一开始的时候结果不可见，所以高度设置为0*/
+    height: 0px;
+    background: url("../images/result.png");
+    margin-top:-12px;
+    transition: height 1s 2s linear;
+}
+.fourth .info{
+    width: 612px;
+    height: 299px;
+    background: url("../images/info_4.png");
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(100%,-50%);
+}
+
+/*第四屏动画*/
+.fourth.current .searchBox .searchInput{
+    transform: translateX(0px);
+}
+.fourth.current .searchBox .searchText{
+    width: 99px;
+}
+.fourth.current .searchBox .searchResult{
+    height: 372px;
+}
+/*第五屏*/
+.fifth {
+    /**/
+}
+
+.fifth > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fifth .info {
+    width: 100%;
+    height: 134px;
+    margin: 30px 0;
+    background: url(../images/info_5.png) no-repeat center center;
+}
+
+.fifth .broswer {
+    flex: 1;
+    width: 1004px;
+    position: relative;
+    /*overflow: hidden;*/
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.fifth .tool {
+    width: 100%;
+    height: 79px;
+    opacity: 0;
+    background: url(../images/toolbar.png) center top no-repeat;
+}
+
+.fifth .lines {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.fifth .lineleft {
+    width: 1px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: translateY(-100%);
+}
+
+.fifth .lineright {
+    width: 1px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform: translateY(100%);
+}
+
+.fifth .linetop {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 0;
+    transform: translateX(100%);
+}
+
+.fifth .linebottom {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+}
+
+.fifth .toolbar {
+    position: absolute;
+    top: 32px;
+    left: 70px;
+    /*width: 920px;*/
+    width: 0;
+    overflow: hidden;
+}
+
+.fifth .toolbar p {
+    width: 100%;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+}
+
+.fifth .extra {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 394px;
+    height: 29px;
+    background: url(../images/extra.png);
+    opacity: 0;
+}
+
+.fifth .lineextra {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    bottom: 30px;
+}
+
+/*第五屏动画*/
+.fifth.current .lineleft {
+    transform: translateY(0);
+    transition: all 1s ease-in-out;
+}
+
+.fifth.current .lineright {
+    transform: translateY(0);
+    transition: all 1s ease-in-out;
+}
+
+.fifth.current .linetop {
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+}
+
+.fifth.current .tool {
+    transition: all 1s 1s ease-in-out;
+    opacity: 1;
+}
+
+.fifth.current .toolbar {
+    width: 920px;
+    transition: all 1s 1s ease-in-out;
+}
+
+.fifth.current .extra {
+    opacity: 1;
+    transition: all 1s 1s ease-in-out;
+}
+
